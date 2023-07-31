@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Contact Us{% endblock title %}
+{%  block start %}
+
+<div class="container mt-5 pt-5 col-6">
+      {%include "messages.html"%}
+    <h1>Contact Us</h1>
+    <hr>
+    <form action='contact' method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">First Name</label>
+          <input type="text" name="fname" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Last Name</label>
+          <input type="text" name="lname" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <textarea name="query" class="form-control" cols="30" rows="8" placeholder="Your query"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+</div>
+
+
+{% endblock %}

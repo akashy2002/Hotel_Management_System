@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% block title %}Profile{% endblock title %}
+
+{%  block start %}
+
+<div class="container mt-5 pt-5 col-6">
+    <h1>Your Profile</h1>
+    <hr>
+    <div class="container">
+        {%include "messages.html"%}
+
+        {% for p in pro %}
+            <img src="{{p.photo.url}}" alt="" width=200, height=370>
+        {% endfor %}
+        
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="name" class="form-control" placeholder="Name">
+            <input type="file" name="file" style="margin:0px 15px; font-size:13px;">
+            <button type="submit" class="btn btn-success" style="font-size:13px; margin:4px 13px">Upload</button>
+        </form>
+            {% comment %} {% for p in pro %}
+            <a href="/delete/{{p.id}}" class="btn btn-danger">Delete Profile</a>
+            {% endfor %} {% endcomment %}
+    </div>
+   
+
+
+{% endblock %}
+

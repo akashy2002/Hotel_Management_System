@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Your Booking{% endblock title %}
+
+{%  block start %}
+
+<div class="container mt-5 pt-5 col-6">
+    <h1>Your Booking</h1>
+    <hr>
+    <div class="container">
+        {% if user_booking %}
+        <h4 class="text-success"><b> <i>{{request.user}}:</i> </b>Your hotel has been booked successfully!</h4><br>
+        {% for yb in user_booking %}
+        <span class="text-center">Hotel Name:<b>{{yb.hotel}}</b></span>
+        <span class="text-center">Dates:<b>{{yb.start_date}}</b> To <b>{{yb.end_date}}</b> | <b>(Booked)</b></span>
+        <br>
+        <hr>
+        {% endfor %}
+        <h4>Thank You!</h4>
+        {% else %}
+        <h4 class="text-warning">You have not booked any hotel yet!</h4>
+        {% endif %}
+    </div>
+   
+
+
+{% endblock %}
+
